@@ -20,9 +20,9 @@ function App() {
 
     if(!stopIteration){
       let correctFood = prompt("Qual prato você pensou?")
-      let foodDiference = prompt(`${correctFood} é ______ mas Lasanha não.`)
+      let foodDifference = prompt(`${correctFood} é ______ mas Lasanha não.`)
       alert("Fim do questionario! Obrigado pela atenção :)")
-      return foodDiference
+      return foodDifference
     }
   };
 
