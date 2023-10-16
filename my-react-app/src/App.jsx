@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <img className='logo' src="src\assets\conteudize.jpg" alt="" />
+      <img className='logo' src="conteudize.jpg" alt="" />
       <div className='mainDiv'>
         <p>Pense em um prato que gosta</p>
         <button onClick={quiz}>Iniciar</button>
