@@ -20,10 +20,15 @@
 }
 
 .mainDiv{
-  border: 3px solid rgb(40, 40, 255);
-  background-color: rgba(40, 40, 255, 0.26);
+  background-color: rgba(40, 40, 255, 0.664);
   padding: 1rem;
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: 0.5s;
+}
+
+.mainDiv:hover{
+  box-shadow: rgba(40, 40, 255, 0.664) 0px 5px 15px;
 }
 
 .mainDiv > p{

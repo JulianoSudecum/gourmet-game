@@ -2,29 +2,68 @@ import './App.css'
 
 function App() {
 
-  const foodOptions = ["Massa", "Lasanha"]
-
   const quiz = () => {
-    let stopIteration = false;
   
-    foodOptions.map((food) => {
-      if (stopIteration) return;
-  
-      let response = prompt(`O prato que você pensou é ${food}?`);
-  
-      if (response.toLocaleLowerCase() === "sim") {
-        alert("Acertei dnv!");
-        stopIteration = true;
+    const pratos = [
+      {
+        "nome": "Lasanha",
+        "caracteristicas": ["massa", "cozido", "recheado", "feito no forno"]
+      },
+      {
+        "nome": "Macarrão",
+        "caracteristicas": ["massa", "cozido"]
+      },
+      {
+        "nome": "Brigadeiro",
+        "caracteristicas": ["doce", "feito com chocolate"]
       }
-    });
+    ];
+    
+      let prato = pratos.find((p) => p.caracteristicas.includes("massa"));
+    
+      if (!prato) {
+        return null;
+      }
+    
+      let pergunta = "O prato que você pensou é uma massa?";
+      let resposta = window.prompt(pergunta);
+    
+      if (resposta === "sim") {
+        pergunta = "O prato que você pensou é lasanha?";
+        resposta = window.prompt(pergunta);
+    
+        if (resposta === "sim") {
+          return prato;
+        } else {
+          pratos.map((item) => {
+            if(item.nome != prato.nome){
+              item.caracteristicas.map((caracteristica) => {
+                if(caracteristica == "massa"){
+                  let pergunta = window.prompt(`O prato que você pensou é uma ${item.nome}?`)
 
-    if(!stopIteration){
-      let correctFood = prompt("Qual prato você pensou?")
-      let foodDifference = prompt(`${correctFood} é ______ mas Lasanha não.`)
-      alert("Fim do questionario! Obrigado pela atenção :)")
-      return foodDifference
+                  if(pergunta == "sim"){
+                    console.log(`O prato que você pensou foi ${item.nome}`)
+                    return item
+                  }
+                  else if(pergunta == "nao"){
+                    let nome = window.prompt("Qual prato você pensou?")
+                    let caracteristica = window.prompt("Fale uma caracteristica do seu prato: ")
+                    const novoPrato = {
+                      nome,
+                      caracteristica
+                    }
+                    pratos.push(novoPrato)
+                    console.log(pratos)
+                  }
+                }
+              })
+            }
+          })
+        }
+      } else {
+        return null;
+      }
     }
-  };
 
   return (
     <>
