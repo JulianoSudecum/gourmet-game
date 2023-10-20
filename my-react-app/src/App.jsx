@@ -20,11 +20,14 @@ function App() {
     ];
 
     let array = pratos.map((prato) => prato.caracteristicas);
+    let isFinished = false
 
     let uniqueArray = [...new Set(array.flat())];
 
-    uniqueArray.map((element) => {
-      let response = prompt(`O prato que você pensou é ${element}?`)
+    uniqueArray.map((element, index) => {
+      console.log(index)
+      if(!isFinished){
+        let response = prompt(`O prato que você pensou é ${element}?`)
       // efetua o filtro de separacao por caracteristicas
       if(response.toLowerCase() == "sim"){
         let arrayFiltered = pratos.filter((pratoFilter) => pratoFilter.caracteristicas == element)
@@ -43,7 +46,7 @@ function App() {
           let response = prompt(`O prato que você pensou é ${arrayFiltered[0].nome}?`)
           if(response.toLowerCase() == "sim"){
             alert("Acertei denovo!")
-            return;
+            isFinished = true
           }
         }
         // caso elemento tiver +1 caracteristica
@@ -60,26 +63,24 @@ function App() {
                   let response = prompt(`O prato que você pensou é ${index[0].nome}`)
                   if(response.toLowerCase() == "sim"){
                     alert("Acertei denovo!")
-                    return;
+                    isFinished = true
                   }
                 } else {
                   const array = arrayFiltered.filter((arrayElement) => arrayElement.nome != index[0].nome)
                   let response = prompt(`O prato que você pensou é ${array[0].nome}?`)
                   if(response.toLowerCase() == "sim"){
                     alert("Acertei denovo!")
-                    return;
+                    isFinished = true
                   }
                 }
-                // else{
-                //   console.log(prato)
-                // }
               }
             })
           })
         }
-      }
+      }}
     })
     }
+    // caso nao seja nenhum do armazenamento criar excecao para outro prato
 
   return (
     <>
