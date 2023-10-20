@@ -87,7 +87,7 @@ function App() {
           if((index + 1) == plates.length){
             let plateResponse = prompt("Qual prato você pensou?");
             let characteristicResponse = prompt(
-              `${plateResponse} é _______ mas `
+              `${plateResponse} é _______ mas ${plates[index].name} não`
             );
             let newPlate = {
               name: plateResponse,
